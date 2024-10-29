@@ -3,9 +3,8 @@ import { PouletCroquant, SuperCremeux } from "../common/models";
 
 let state = {
     value: null,
+    owner: {},
     list: [
-        SuperCremeux,
-        PouletCroquant,
     ]
 };
 
