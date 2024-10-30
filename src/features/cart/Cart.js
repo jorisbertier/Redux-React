@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useStore } from "react-redux";
 import { SuperCremeux } from "../../common/models";
+import { getProductList } from "../../app/selector";
 
 export const Cart = () => {
     const store = useStore();
-    const [list, setList] = useState(store.getState().list)
+    const [list, setList] = useState(getProductList(store.getState()))
     
     useEffect(()=> {
-        store.subscribe(() => { setList(store.getState().list) })
+        store.subscribe(() => setList(getProductList(store.getState())))
     })
 
     
