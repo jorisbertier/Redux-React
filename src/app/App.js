@@ -3,6 +3,8 @@ import { store } from './store';
 import './App.css';
 import { Cart } from '../features/cart/Cart';
 import { Total } from '../total/Total';
+import { Voucher } from '../features/voucher/Voucher';
+import Owner from '../features/owner/Owner';
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
         <div className="App">
           <Cart/>
           <Total/>
+          <Voucher/>
+          <Owner/>
         </div>
     </Provider>
   );
