@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { useStore } from "react-redux";
+import { getProductList, getTotalOrder } from "../app/selector";
 
 export const Total = () => {
     const store = useStore();
 
-    const [list, setList] = useState(store.getState().list)
+    const [list, setList] = useState(getProductList(store.getState()))
     
+    const totalCommand = getTotalOrder(store.getState())
     useEffect(()=> {
-        store.subscribe(() => setList(store.getState().list))
+        store.subscribe(() => setList(getProductList(store.getState())))
     })
-    const totalCommand = list.reduce((prev, cure) => cure.price + prev, 0)
     return (
         <div className="TotalCommand">
             {list.length !== 0 ? (
