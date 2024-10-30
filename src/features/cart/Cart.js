@@ -10,10 +10,6 @@ export const Cart = () => {
         store.subscribe(() => { setList(store.getState().list) })
     })
 
-    let totalList = list.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.price,
-        0,
-      );
     
     return (
         <div className="Selection">
@@ -22,11 +18,6 @@ export const Cart = () => {
                 (item, index) => 
                 <span key={index} className="SelectedProduct">{item.title} {item.price} €</span>
                 )}
-            {list.length !== 0 ? (
-                <div>Total commande {totalList} euros</div>
-            ) : (
-                <div>Aucun produit sélectionné pour le moment</div>
-            )}
             <div className="CartNavBar">
                 <button onClick={() => store.dispatch({type: 'ADD_PRODUCT', payload: SuperCremeux})}>Ajouter un super crémeux</button>
             </div>
